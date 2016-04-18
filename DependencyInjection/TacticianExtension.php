@@ -67,12 +67,6 @@ class TacticianExtension extends ConfigurableExtension
             return;
         }
 
-        if (! $container->has($mergedConfig['method_inflector'])) {
-            throw new \Exception(
-                'Unable to find requested method_inflector service definition: ' . $mergedConfig['method_inflector']
-            );
-        }
-
         $inflectorReference = new Reference($mergedConfig['method_inflector']);
 
         $handlerLocator = $container->findDefinition('tactician.middleware.command_handler');
